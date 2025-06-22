@@ -1,0 +1,24 @@
+<script>
+  const numPetals = 25;
+
+  for (let i = 0; i < numPetals; i++) {
+    let petal = document.createElement('div');
+    petal.innerHTML = '🌸';
+    petal.style.position = 'fixed';
+    petal.style.zIndex = '1000';
+    petal.style.top = '-50px';
+    petal.style.fontSize = `${Math.random() * 24 + 18}px`;
+    petal.style.left = `${Math.random() * 100}vw`;
+    petal.style.animation = `fall ${Math.random() * 8 + 5}s linear infinite`;
+    document.body.appendChild(petal);
+  }
+
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
